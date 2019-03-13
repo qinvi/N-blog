@@ -48,7 +48,7 @@ function writeDataToDB(data, req, res, next) {
       data = result.ops[0]
       req.flash('success', '发表成功')
       // 发表成功后跳转到该文章页
-      res.redirect(`/posts/${data._id}`)
+      res.redirect(`/posts`)
     })
     .catch(next)
 }
