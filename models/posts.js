@@ -46,5 +46,21 @@ module.exports = {
   incPv: function(postId) { // 相应文章浏览数+1
     return Post
       .update({ _id: postId }, { $inc: { pv: 1 } } )
+  },
+  getRawPostById: function(postId) { // 获取原生文章
+    return Post
+      .findOne({ _id: postId })
+      .populate({ path: 'author', model: 'User'})
+      .exec()
+  },
+  updatePostById: function(postId, data) { // 更新特定文章
+    return Post
+      .update({ _id: postId}, { $set: data })
+      .exec()
+  },
+  delPostById: function(postId) {
+    return Post
+      .deleteOne({ _id: postId })
+      .exec()
   }
 }
