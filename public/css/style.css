@@ -76,3 +76,12 @@ a:hover {
 .post-content .tag.right a {
   color: #999;
 }
+
+.four.wide.column {
+  margin-bottom: 3px;
+}
+.four.wide.column::after {
+  content: '';
+  display: block;
+  clear: both;
+}
